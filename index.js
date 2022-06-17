@@ -20,7 +20,7 @@ function App() {
 	// Fixed missing html tags and babel calling `require` error. Adding length function to change break duration.
 	function Length({ title, changetime, type, time, formatTime }) {
 		return (
-			<div>
+			<div className='any'>
 				<h3>{title}</h3>
 				<div className='time-sets'>
 					<span className='material-symbols-outlined'>
@@ -36,4 +36,6 @@ function App() {
 	}
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const container = document.getElementById('root')
+const root = ReactDOM.createRoot(container)
+root.render(<App name='index.js' />)
