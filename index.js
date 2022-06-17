@@ -12,26 +12,28 @@ function App() {
 	// display remaining time until break
 	return (
 		<div>
-			<Length title={'break length'} changetime={null} type={'break'} time={null} formattime />
+			<Length title={'break length'} changetime={null} type={'break'} time={null} formatTime />
 			<h1>{formatTime(displayTime)}</h1>
 		</div>
 	)
 
-	// Fixed missing html tags and a dep calling `require` error, compiler perhaps not recognising babel as a module. Adding length function to change break duration.
-	// ESLint not autofilling quotes in className
-	function Length({ title, changetime, type, time, formattime }) {
+	// Fixed missing html tags and babel calling `require` error. Adding length function to change break duration.
+	function Length({ title, changetime, type, time, formatTime }) {
 		return (
 			<div>
 				<h3>{title}</h3>
 				<div className='time-sets'>
-					<button className='placeholder'>
-						<i className='placeholder'></i>
-					</button>
+					<span className='material-symbols-outlined'>
+						arrow_downward
+					</span>
+					<h3>formatTime{time}   </h3>
+					<span className='material-symbols-outlined'>
+						arrow_upward
+					</span>
 				</div>
 			</div>
 		)
 	}
-
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
