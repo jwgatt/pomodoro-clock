@@ -29,7 +29,7 @@ function App() {
 		</div>
 	)
 
-	// Fixed missing html tags and babel calling `require` error. Adding length function to change break duration.
+	// Fixed missing html tags and babel calling `require` error. Length function to change break and sessionn duration.
 	function Length({ title, changeTime, type, time, formatTime }) {
 		return (
 			<div >
