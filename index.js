@@ -11,16 +11,16 @@ function App() {
 			(seconds < 10 ? '0' + seconds : seconds)
 	}
 
-	// Give arrow icon can modify braek length. todo; change pointer to hand icon
+	// Arrow icons can modify break and session time
 	const changeTime = (amount, type) => {
 		if (type == 'break') {
 			setBreakTime(prev => prev + amount)
 		} else {
-			setSessionTime(prev => prev +amount)
+			setSessionTime(prev => prev + amount)
 		}
 	}
 
-	// Display remaining time until break
+	// Render buttons.
 	return (
 		<div>
 			<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
