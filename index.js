@@ -13,11 +13,11 @@ function App() {
 	// Give arrow icon can modify braek length. todo; change pointer to hand icon
 	const changeTime = (amount, type) => {
 		if (type == 'break') {
-			setBreakTime( prev => prev + amount )
+			setBreakTime(prev => prev + amount)
 		}
 	}
 
-	// display remaining time until break
+	// Display remaining time until break
 	return (
 		<div>
 			<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
@@ -31,13 +31,13 @@ function App() {
 			<div >
 				<h3>{title}</h3>
 				<div className='time-sets'>
-					<span className='material-symbols-outlined' onClick={() => changeTime(-60, type)}>
+					<button className='material-symbols-outlined' onClick={() => changeTime(-60, type)}>
 						arrow_downward
-					</span>
+					</button>
 					<h3>{formatTime(time)}   </h3>
-					<span className='material-symbols-outlined'>
+					<button className='material-symbols-outlined' onClick={() => changeTime(+60, type)}>
 						arrow_upward
-					</span>
+					</button>
 				</div>
 			</div>
 		)
