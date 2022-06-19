@@ -2,6 +2,7 @@ function App() {
 	const [displayTime, setDisplayTime] = React.useState(25 * 60)
 	const [breakTime, setBreakTime] = React.useState(5 * 60)
 	const [sessionTime, setSessionTime] = React.useState(25 * 60)
+	const [timerOn, setTimerOn] = React.useState(false)
 
 	const formatTime = (time) => {
 		let minutes = Math.floor(time / 60);
@@ -14,9 +15,21 @@ function App() {
 	// Arrow icons can modify break and session time
 	const changeTime = (amount, type) => {
 		if (type == 'break') {
+			// breakTime cannot go below zero
+			if (breakTime <= 60 && amount < 0) {
+				return;
+			}
 			setBreakTime(prev => prev + amount)
 		} else {
+			// sessionTime cannot go below zero
+			if (sessionTime <= 60 && amount < 0) {
+				return;
+			}
 			setSessionTime(prev => prev + amount)
+			// If timer is not on, set to sessionTime plus amount. 
+			if (!timerOn) {
+				setDisplayTime(sessionTime + amount)
+			}
 		}
 	}
 
