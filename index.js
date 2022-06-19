@@ -12,7 +12,7 @@ function App() {
 			(seconds < 10 ? '0' + seconds : seconds)
 	}
 
-	// Arrow icons can modify break and session time
+	// Arrow icons can modify break and session time. Amount argument == amount of change.
 	const changeTime = (amount, type) => {
 		if (type == 'break') {
 			// breakTime cannot go below zero
@@ -35,10 +35,13 @@ function App() {
 
 	// Render buttons.
 	return (
-		<div>
-			<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
-			<Length title={'session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
-			<h1>{formatTime(displayTime)}</h1>
+		<div className='main-container'>
+			<h1>Pomodoro Clock</h1>
+			<div className='dual-container'>
+				<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
+				<Length title={'session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
+				<h1>{formatTime(displayTime)}</h1>
+			</div>
 		</div>
 	)
 
