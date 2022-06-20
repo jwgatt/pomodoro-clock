@@ -63,8 +63,8 @@ function App() {
 			</button>
 
 			{/* Add auto renew button*/}
-			<button className='material-symbols-outlined' onClick={resetTime} >
-				autorenew
+			<button className='autorenew button' onClick={resetTime} >
+					<i className='material-symbols-outlined' >autorenew</i>
 			</button>
 		</div>
 	)
