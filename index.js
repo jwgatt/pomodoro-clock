@@ -40,8 +40,8 @@ function App() {
 			<div className='dual-container'>
 				<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
 				<Length title={'session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
-				<h1>{formatTime(displayTime)}</h1>
 			</div>
+			<h1>{formatTime(displayTime)}</h1>
 		</div>
 	)
 
