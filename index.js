@@ -34,7 +34,7 @@ function App() {
 	}
 
 	// Give play and pause functionality to play button
-	const controlTime = () => {}
+	const controlTime = () => { }
 	// Render buttons.
 	return (
 		<div className='main-container'>
@@ -52,7 +52,11 @@ function App() {
 				) : (
 					<i className='material-symbols-outlined' >play_arrow</i>
 				)}
-				</button>
+			</button>
+			{/* Add auto renew button*/}
+			<button className='material-symbols-outlined'>
+				autorenew
+			</button>
 		</div>
 	)
 
