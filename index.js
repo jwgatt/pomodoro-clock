@@ -33,6 +33,8 @@ function App() {
 		}
 	}
 
+	// Give play and pause functionality to play button
+	const controlTime = () => {}
 	// Render buttons.
 	return (
 		<div className='main-container'>
@@ -42,6 +44,15 @@ function App() {
 				<Length title={'session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
 			</div>
 			<h1>{formatTime(displayTime)}</h1>
+
+			{/* Add button that switches between play and pause*/}
+			<button className='play button' onClick={controlTime}>
+				{timerOn ? (
+					<i className='material-symbols-outlined' >pause</i>
+				) : (
+					<i className='material-symbols-outlined' >play_arrow</i>
+				)}
+				</button>
 		</div>
 	)
 
