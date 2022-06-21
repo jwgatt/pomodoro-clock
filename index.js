@@ -54,7 +54,17 @@ function App() {
 				nextDate += second;
 				}
 			}, 30);
+			// So that we can clear the interval
+			localStorage.clear();
+			// Store interval as global variable
+			localStorage.setItem('interval-id', interval)
 		}
+
+		// Make timer pause
+		if(timerOn){
+			clearInterval(localStorage.getItem('interval-id'));
+		}
+		setTimerOn(!timerOn)
 	}
 
 
