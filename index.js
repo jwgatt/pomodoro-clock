@@ -104,6 +104,7 @@ function App() {
 				<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
 				<Length title={'session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
 			</div>
+			<h3>{onBreak ? 'Break' : 'Session'}</h3>
 			<h1>{formatTime(displayTime)}</h1>
 
 			{/* Add button that switches between play and pause*/}
