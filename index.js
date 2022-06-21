@@ -4,6 +4,13 @@ function App() {
 	const [sessionTime, setSessionTime] = React.useState(25 * 60)
 	const [timerOn, setTimerOn] = React.useState(false)
 	const [onBreak, setOnBreak] = React.useState(false)
+	const [breakAudio, setBreakAudio] = React.useState(new Audio('./breakTime.mp3'))
+
+	// Play sound on break time starting
+	const playBreakSound = () => {
+		breakAudio.currentTime = 0;
+		breakAudio.play();
+	}
 
 	const formatTime = (time) => {
 		let minutes = Math.floor(time / 60);
@@ -49,11 +56,25 @@ function App() {
 				date = new Date().getTime();
 				if (date > nextDate) {
 					setDisplayTime((prev) => {
+
+						// If we are not on break and timer has run out, play break sound, else set to false.
+						if (prev <= 0 && !onBreakVariable) {
+							playBreakSound();
+							onBreakVariable = true;
+							setOnBreak(true);
+							return breakTime;
+						} else if (prev <= 0 && onBreakVariable) {
+							playBreakSound();
+							onBreakVariable = false;
+							setOnBreak(false);
+							return sessionTime;
+						}
 						return prev - 1;
 					})
-				nextDate += second;
+					nextDate += second;
 				}
 			}, 30);
+
 			// So that we can clear the interval
 			localStorage.clear();
 			// Store interval as global variable
@@ -61,7 +82,7 @@ function App() {
 		}
 
 		// Make timer pause
-		if(timerOn){
+		if (timerOn) {
 			clearInterval(localStorage.getItem('interval-id'));
 		}
 		setTimerOn(!timerOn)
