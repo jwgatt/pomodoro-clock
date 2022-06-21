@@ -3,14 +3,17 @@ function App() {
 	const [breakTime, setBreakTime] = React.useState(5 * 60)
 	const [sessionTime, setSessionTime] = React.useState(25 * 60)
 	const [timerOn, setTimerOn] = React.useState(false)
+	const [onBreak, setOnBreak] = React.useState(false)
 
 	const formatTime = (time) => {
 		let minutes = Math.floor(time / 60);
 		let seconds = time % 60;
-		return (minutes < 10 ? '0' + minutes : minutes) +
+		return (
+			(minutes < 10 ? '0' + minutes : minutes) +
 			':' +
 			(seconds < 10 ? '0' + seconds : seconds)
-	}
+		);
+	};
 
 	// Arrow icons can modify break and session time. Amount argument == amount of change.
 	const changeTime = (amount, type) => {
@@ -19,13 +22,13 @@ function App() {
 			if (breakTime <= 60 && amount < 0) {
 				return;
 			}
-			setBreakTime(prev => prev + amount)
+			setBreakTime((prev) => prev + amount)
 		} else {
 			// sessionTime cannot go below zero
 			if (sessionTime <= 60 && amount < 0) {
 				return;
 			}
-			setSessionTime(prev => prev + amount)
+			setSessionTime((prev) => prev + amount)
 			// If timer is not on, set to sessionTime plus amount. 
 			if (!timerOn) {
 				setDisplayTime(sessionTime + amount)
@@ -34,11 +37,30 @@ function App() {
 	}
 
 	// Give play and pause functionality to play button
-	const controlTime = () => { }
+	const controlTime = () => {
+		let second = 1000;
+		let date = new Date().getTime();
+		let nextDate = new Date().getTime() + second;
+		let onBreakVariable = onBreak;
+
+		// Set time limit before function restarts.
+		if (!timerOn) {
+			let interval = setInterval(() => {
+				date = new Date().getTime();
+				if (date > nextDate) {
+					setDisplayTime((prev) => {
+						return prev - 1;
+					})
+				nextDate += second;
+				}
+			}, 30);
+		}
+	}
+
 
 	// Set time back to original state.
 	const resetTime = () => {
-		setDisplayTime(25 + 60)
+		setDisplayTime(25 * 60)
 		setBreakTime(5 * 60)
 		setSessionTime(25 * 60)
 	}
@@ -64,7 +86,7 @@ function App() {
 
 			{/* Add auto renew button*/}
 			<button className='autorenew button' onClick={resetTime} >
-					<i className='material-symbols-outlined' >autorenew</i>
+				<i className='material-symbols-outlined' >autorenew</i>
 			</button>
 		</div>
 	)
