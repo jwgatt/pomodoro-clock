@@ -22,23 +22,23 @@ function App() {
 		);
 	};
 
-	// Arrow icons can modify break and session time. Amount argument == amount of change.
-	const changeTime = (amount, type) => {
+	// Arrow icons can modify break and session time. AmountExtra argument == extra amount of time.
+	const changeTime = (amountExtra, type) => {
 		if (type == 'break') {
 			// breakTime cannot go below zero
-			if (breakTime <= 60 && amount < 0) {
+			if (breakTime <= 60 && amountExtra < 0) {
 				return;
 			}
-			setBreakTime((prev) => prev + amount)
+			setBreakTime((prev) => prev + amountExtra)
 		} else {
 			// sessionTime cannot go below zero
-			if (sessionTime <= 60 && amount < 0) {
+			if (sessionTime <= 60 && amountExtra < 0) {
 				return;
 			}
-			setSessionTime((prev) => prev + amount)
+			setSessionTime((prev) => prev + amountExtra)
 			// If timer is not on, set to sessionTime plus amount. 
 			if (!timerOn) {
-				setDisplayTime(sessionTime + amount)
+				setDisplayTime(sessionTime + amountExtra)
 			}
 		}
 	}
