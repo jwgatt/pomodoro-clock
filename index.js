@@ -101,11 +101,15 @@ function App() {
 		<div className='main-container'>
 			<h1>Pomodoro Clock</h1>
 			<div className='dual-container'>
-				<Length title={'break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
-				<Length title={'session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
+				<Length title={'Break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
+				<Length title={'Session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
 			</div>
-			<h3>{onBreak ? 'Break' : 'Session'}</h3>
-			<h1>{formatTime(displayTime)}</h1>
+			<div className='timer-wrapper'>
+
+				<h3>{onBreak ? 'Break' : 'Session'}</h3>
+				<h1>{formatTime(displayTime)}</h1>
+
+			</div>
 
 			{/* Add button that switches between play and pause*/}
 			<button className='play button' onClick={controlTime}>

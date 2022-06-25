@@ -1,10 +1,22 @@
 body {
   color: white;
-  background-color: rgb(68, 63, 63);
+  background-color: rgb(51, 60, 163);
+  font-size: 25px;
+  font-family: Times, "Times New Roman", Georgia, serif;
+
+}
+
+.timer-wrapper {
+  border: 7px solid #13353a;
+  margin: -2px auto 18px auto;
+  width: 270px;
+  height: 190px;
+  border-radius: 90px;
+  position: relative;
 }
 
 .main-container {
-    text-align: center;
+  text-align: center;
 }
 
 .time-sets {
