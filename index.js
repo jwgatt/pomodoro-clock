@@ -99,31 +99,26 @@ function App() {
 	// Render buttons.
 	return (
 		<div className='main-container'>
-			<h1>Pomodoro Clock</h1>
+			<h1 className='test'>Pomodoro Clock</h1>
 			<div className='dual-container'>
 				<Length title={'Break length'} changeTime={changeTime} type={'break'} time={breakTime} formatTime={formatTime} />
 				<Length title={'Session length'} changeTime={changeTime} type={'session'} time={sessionTime} formatTime={formatTime} />
 			</div>
 			<div className='timer-wrapper'>
-
 				<h3>{onBreak ? 'Break' : 'Session'}</h3>
 				<h1>{formatTime(displayTime)}</h1>
-
 			</div>
 
 			{/* Add button that switches between play and pause*/}
-			<button className='play button' onClick={controlTime}>
+			<i onClick={controlTime}>
 				{timerOn ? (
 					<i className='material-symbols-outlined' >pause</i>
 				) : (
 					<i className='material-symbols-outlined' >play_arrow</i>
 				)}
-			</button>
-
+			</i>
 			{/* Add auto renew button*/}
-			<button className='autorenew button' onClick={resetTime} >
-				<i className='material-symbols-outlined' >autorenew</i>
-			</button>
+			<i className='material-symbols-outlined' onClick={resetTime}>autorenew</i>
 		</div>
 	)
 
