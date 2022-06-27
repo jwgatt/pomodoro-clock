@@ -128,13 +128,13 @@ function App() {
 			<div >
 				<h3>{title}</h3>
 				<div className='time-sets'>
-					<button className='material-symbols-outlined' onClick={() => changeTime(-60, type)}>
+					<i className='material-symbols-outlined' onClick={() => changeTime(-60, type)}>
 						arrow_downward
-					</button>
+					</i>
 					<h3>{formatTime(time)}   </h3>
-					<button className='material-symbols-outlined' onClick={() => changeTime(+60, type)}>
+					<i className='material-symbols-outlined' onClick={() => changeTime(+60, type)}>
 						arrow_upward
-					</button>
+					</i>
 				</div>
 			</div>
 		)
