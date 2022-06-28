@@ -14,3 +14,4 @@ Working with Material Symbols and a barebones react config, using LiveServer ins
 - [x] Reduce margin between arrows and time in single containers.
 - [x] Increase button size 
 - [x] Replace button css styling with html element tags 
+- [ ] Add start sound
