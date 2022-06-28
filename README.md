@@ -11,6 +11,6 @@ Working with Material Symbols and a barebones react config, using LiveServer ins
 - [ ] two clickable elements with corresponding IDs: id="break-increment" and id="session-increment".
 - [ ] element with a corresponding id="break-length", which by default (on load) displays a value of 5.
 - [x] Reduce margin between title and time in dual container grid.
-- [ ] Reduce margin between arrows and time in single containers.
-- [ ] Increase button size 
+- [x] Reduce margin between arrows and time in single containers.
+- [x] Increase button size 
 - [x] Replace button css styling with html element tags 
