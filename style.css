@@ -5,6 +5,9 @@ body {
   font-family: Times, "Times New Roman", Georgia, serif;
 }
 
+.title {
+  height: 35px;
+}
 
 .timer-wrapper {
   border: 7px solid #13353a;
@@ -27,7 +30,7 @@ body {
   align-items: center;
 }
 .material-symbols-outlined {
-    font-size: 54px;
+  font-size: 60px;
 }
 
 .dual-container {
