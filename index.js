@@ -128,7 +128,7 @@ function App() {
 			<div >
 				<h3>{title}</h3>
 				<div className='time-sets'>
-					<i className='material-symbols-outlined' onClick={() => changeTime(-60, type)}>
+					<i className='material-symbols-outlined ' onClick={() => changeTime(-60, type)}>
 						arrow_downward
 					</i>
 					<h3>{formatTime(time)}   </h3>

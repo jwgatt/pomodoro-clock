@@ -3,8 +3,8 @@ body {
   background-color: rgb(51, 60, 163);
   font-size: 25px;
   font-family: Times, "Times New Roman", Georgia, serif;
-
 }
+
 
 .timer-wrapper {
   border: 7px solid #13353a;
@@ -25,6 +25,9 @@ body {
   grid-template-columns: 50px 200px 50px;
   justify-items: center;
   align-items: center;
+}
+.material-symbols-outlined {
+    font-size: 54px;
 }
 
 .dual-container {
